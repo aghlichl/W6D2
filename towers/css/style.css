@@ -1,0 +1,27 @@
+.disc{
+    list-style: none;
+    margin: 20px;
+    width: 30%;
+    background: black;
+    height: 30%;
+    border-radius: 500px 50px 5px 5px;
+    
+}
+
+.tower{
+    border-radius: 500px 50px 5px 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: gray;
+    display: flex;
+    width: 200px;
+    height: 300px;
+    margin: 20px;
+    overflow: hidden;
+}
+
+.hanoi{
+    display: flex;
+
+}
