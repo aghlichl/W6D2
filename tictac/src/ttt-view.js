@@ -26,6 +26,10 @@ class View {
   bindEvents(currentTarget){
     console.log(currentTarget.id)
 
+    let currentClass = $(currentTarget).className;
+    console.log(currentClass);
+    try{
+    this.game.playMove(currentTarget.id);
     if (this.game.currentPlayer === "x"){
       $(currentTarget).addClass('x');
       $(currentTarget).append('<i class="fa fa-times" aria-hidden="true">');
@@ -34,8 +38,13 @@ class View {
       $(currentTarget).append('<i class="fas fa-circle"></i>');
       $(currentTarget).addClass('o');
     }
-    this.game.playMove(currentTarget.id);
+    }
+    catch(err){
+      alert(err.msg); 
+    }
+
     
+    console.log(currentClass);
     
   }
 
