@@ -1,0 +1,53 @@
+.ttt {
+
+}
+
+
+
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+    background: black;
+    border-radius: 5px;
+    max-width: 700px;
+}
+
+.box{
+    border-radius: 5%;
+    height: 200px;
+    width: 200px;
+    flex-flow: row;
+    margin: 5px;
+    border: 5px solid white;
+    background: darkgrey;
+    list-style: none;
+}
+
+.x{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background: green;
+    font-size: 1500%;
+    
+}
+.o{
+   display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1000%;   
+    background-color: rgb(170, 0, 0);
+    font-weight: 9900%;
+}
+
+.box:hover {
+    background-color: lightgray;
+}
+
+.x:hover{
+    background-color: #49fb35;
+}
+
+.o:hover{
+    background: rgb(255, 0, 0);
+}
