@@ -7,47 +7,53 @@ class View {
     console.log(this);
   }
 
-  bindEvents() {}
+  bindEvents() { }
 
-  makeMove($square) {}
+  makeMove($square) { }
 
-  setupBoard(){
+  setupBoard() {
     let $ul = $('<ul class="grid">')
-    for(let li=0; li<9; li++){
+    for (let li = 0; li < 9; li++) {
       let $li = $(`<li class="box" id=${li}>`)
-      
+
       $ul.append($li);
     }
-    $ul.on('click', "li", (e) => this.bindEvents(e.currentTarget) ) ; 
+    $ul.on('click', "li", (e) => this.bindEvents(e.currentTarget));
     this.$el.append($ul);
 
   }
 
-  bindEvents(currentTarget){
+  bindEvents(currentTarget) {
     console.log(currentTarget.id)
-
+    if (this.game.isOver()){
+      return;
+    }
     let currentClass = $(currentTarget).className;
     console.log(currentClass);
-    try{
-    this.game.playMove(currentTarget.id);
-    if (this.game.currentPlayer === "x"){
-      $(currentTarget).addClass('x');
-      $(currentTarget).append('<i class="fa fa-times" aria-hidden="true">');
+    try {
+      this.game.playMove(currentTarget.id);
+      if (this.game.currentPlayer === "x") {
+        $(currentTarget).addClass('x');
+        $(currentTarget).append('<i class="fa fa-times" aria-hidden="true">');
+      }
+      else {
+        $(currentTarget).append('<i class="fas fa-circle"></i>');
+        $(currentTarget).addClass('o');
+      }
     }
-    else{
-      $(currentTarget).append('<i class="fas fa-circle"></i>');
-      $(currentTarget).addClass('o');
+    catch (err) {
+      alert(err.msg);
     }
+    if(this.game.isOver()){
+      let $header = $('h1');
+      if(this.game.currentPlayer === "o"){
+        $header.append(`<h1> <i class="fas fa-circle"></i> WINS! </h1>`)
+      }
+      else{
+        $header.append(`<h1> <i class="fa fa-times" aria-hidden="true"> WINS! </h1>`)
+      }
     }
-    catch(err){
-      alert(err.msg); 
-    }
-
-    
-    console.log(currentClass);
-    
   }
-
 }
 
 
